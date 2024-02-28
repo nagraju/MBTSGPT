@@ -39,7 +39,7 @@
             app:destination="@id/nav_home" />
         <action
             android:id="@+id/action_connection_error_to_login"
-            app:destination="@id/login" />
+            app:destination="@id/nav_login" />
         <action
             android:id="@+id/action_connection_error_to_nav_gallery"
             app:destination="@id/nav_gallery" />
@@ -64,7 +64,17 @@
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_slideshow" />
 
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.mbtsgpt.ui.login.LoginFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
 
+    <fragment
+        android:id="@+id/nav_endexam"
+        android:name="com.example.mbtsgpt.ui.endexam.EndexamFragment"
+        android:label="@string/menu_endexam"
+        tools:layout="@layout/fragment_endexam" />
 
 
 </navigation>

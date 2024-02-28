@@ -22,6 +22,7 @@ import com.example.mbtsgpt.databinding.FragmentHomeBinding;
 
 import kotlin.Suppress;
 
+
 public class ConnectionError extends Fragment {
     private FragmentConnectionErrorBinding binding = null;
 
@@ -34,16 +35,12 @@ public class ConnectionError extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String fromLocation = null;
+        String fromLocation;
         if (getArguments() != null) {
             fromLocation = getArguments().getString("last_location");
+        } else {
+            fromLocation = null;
         }
-
-
-
-
-
-
 
         binding.tryAgain.setOnClickListener(v -> {
             if (checkForInternet(view.getContext())) {
@@ -60,22 +57,15 @@ public class ConnectionError extends Fragment {
         });
     }
 
+
     private boolean checkForInternet(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            Network network = connectivityManager.getActiveNetwork();
-            if (network == null) return false;
-            NetworkCapabilities activeNetwork = connectivityManager.getNetworkCapabilities(network);
-            if (activeNetwork == null) return false;
+        NetworkInfo networkinfo = connectivityManager.getActiveNetworkInfo();
+        if(networkinfo == null)
+            return false;
+        else
+            return  networkinfo.isConnectedOrConnecting();
 
-            return activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) || activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR);
-        } else {
-            NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-            if(networkInfo == null)
-                return false;
-            else
-            return  networkInfo.isConnectedOrConnecting();
-        }
     }
 
     @Override
