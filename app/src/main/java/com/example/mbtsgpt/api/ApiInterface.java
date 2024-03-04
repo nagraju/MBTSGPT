@@ -9,7 +9,7 @@ import java.util.List;
 import retrofit2.http.*;
 
 public interface ApiInterface {
-    @POST("/api/v1/auth/login")
+    @POST("/api/login/")
     Call<JwtResponse> loginUser(@Body JwtUserRequest user);
 
     @GET("/api/student/")

@@ -3,12 +3,18 @@ package com.example.mbtsgpt.ui.login;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.mbtsgpt.R;
+import com.example.mbtsgpt.databinding.FragmentHomeBinding;
+import com.example.mbtsgpt.databinding.FragmentLoginBinding;
+import com.example.mbtsgpt.model.JwtUserRequest;
+import com.example.mbtsgpt.utils.Authentication;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +31,9 @@ public class LoginFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    FragmentLoginBinding binding;
+
+
 
     public LoginFragment() {
         // Required empty public constructor
@@ -60,7 +69,38 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+         //Inflate the layout for this fragment
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+        binding.buttonLogin.setOnClickListener(v -> {
+            String userEmail = binding.userEmail.getText().toString();
+            String password = binding.password.getText().toString();
+
+            if (!userEmail.isEmpty() && !password.isEmpty()) {
+                JwtUserRequest user = new JwtUserRequest(userEmail, password);
+                Authentication authObj = new Authentication(user, view.getContext(), NavHostFragment.findNavController(this));
+                authObj.authenticate();
+
+            } else if (userEmail.isEmpty() && password.isEmpty()) {
+                Toast.makeText(view.getContext(), "please provide user email and password", Toast.LENGTH_SHORT).show();
+            } else if (userEmail.isEmpty()) {
+                Toast.makeText(view.getContext(), "please provide user email", Toast.LENGTH_SHORT).show();
+            } else if (password.isEmpty()) {
+                Toast.makeText(view.getContext(), "please provide user password", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }

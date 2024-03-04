@@ -8,7 +8,7 @@ import com.example.mbtsgpt.ui.login.roomdatabase.*;
 
 public class GetUserDetails {
     //get user details
-    public ResponseUserDetails getData(Context context) {
+    public UserEntity getData(Context context) {
         Context appContext = context.getApplicationContext();
         AppDatabase db = Room.databaseBuilder(
                 appContext,
@@ -16,12 +16,15 @@ public class GetUserDetails {
         ).allowMainThreadQueries().build();
         UserDao userDao = db.userDao();
         UserEntity user = userDao.getUser();
+        return  user;
+
+        /*
         return new ResponseUserDetails(
                 user.getUid(),
                 user.getUserEmail(),
                 user.getUserRole(),
                 user.getJwtToken()
-        );
+        ); */
     }
 }
 

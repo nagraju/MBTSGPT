@@ -10,6 +10,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Attendance</string>
     <string name="menu_endexam">End Examination</string>
+    <string name="menu_login">Login</string>
     <string name="menu_slideshow">Slideshow</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
