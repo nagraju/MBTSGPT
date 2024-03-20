@@ -1,6 +1,8 @@
 package com.example.mbtsgpt.api;
 
 import com.example.mbtsgpt.model.*;
+import com.example.mbtsgpt.utils.Authentication;
+
 import okhttp3.ResponseBody;
 import org.json.JSONObject;
 import retrofit2.Call;
@@ -9,6 +11,7 @@ import java.util.List;
 import retrofit2.http.*;
 
 public interface ApiInterface {
+    @Headers("Authentication:''")
     @POST("/api/login/")
     Call<JwtResponse> loginUser(@Body JwtUserRequest user);
 

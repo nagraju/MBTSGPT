@@ -21,7 +21,7 @@ public class AppInterceptor implements Interceptor {
         final String jwtToken;
         UserEntity responseUserDetails = new GetUserDetails().getData(MyApp.getInstance());
         if (responseUserDetails != null)
-           jwtToken = "Bearer  " + responseUserDetails.getJwtToken();
+           jwtToken = "Bearer " + responseUserDetails.getJwtToken();
         else
             jwtToken = "";
 
@@ -29,7 +29,7 @@ public class AppInterceptor implements Interceptor {
                 .newBuilder()
                 .addHeader("Authorization", jwtToken)
                 .build();
-        //    .addHeader("auth-token", jwtToken)
+
         return chain.proceed(request);
     }
 }
