@@ -1,24 +1,24 @@
 package com.example.mbtsgpt.adapter;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.example.mbtsgpt.model.Students;
 import com.example.mbtsgpt.R;
+import com.example.mbtsgpt.model.Students;
+
 import java.util.List;
 
 
-public class HomeScreenAdapter extends RecyclerView.Adapter<HomeScreenAdapter.CustomViewHolder> {
+public class ProfileScreenAdapter extends RecyclerView.Adapter<ProfileScreenAdapter.CustomViewHolder> {
     private List<Students> students;
     private NavController findNavController;
 
-    public HomeScreenAdapter(List<Students> students, NavController findNavController) {
+    public ProfileScreenAdapter(List<Students> students, NavController findNavController) {
         this.students = students;
         this.findNavController = findNavController;
     }

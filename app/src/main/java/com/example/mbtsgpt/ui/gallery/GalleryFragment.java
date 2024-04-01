@@ -1,7 +1,6 @@
 package com.example.mbtsgpt.ui.gallery;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.mbtsgpt.databinding.FragmentGalleryBinding;
-import com.example.mbtsgpt.ui.home.HomePageData;
 
 public class GalleryFragment extends Fragment {
 

@@ -1,31 +1,32 @@
-package com.example.mbtsgpt.ui.home;
+package com.example.mbtsgpt.ui.profile;
 
 import android.os.Bundle;
 import android.util.Log;
+
 import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.mbtsgpt.R;
-import com.example.mbtsgpt.adapter.HomeScreenAdapter;
+import com.example.mbtsgpt.adapter.ProfileScreenAdapter;
 import com.example.mbtsgpt.api.RetrofitBuilder;
 import com.example.mbtsgpt.model.Students;
 
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import java.util.List;
-
-public class HomePageData extends RetrofitBuilder {
+public class ProfilePageData extends RetrofitBuilder {
     private RecyclerView recyclerView;
     private NavController findNavController;
 
-    public HomePageData(RecyclerView recyclerView, NavController findNavController) {
+    public ProfilePageData(RecyclerView recyclerView, NavController findNavController) {
         this.recyclerView = recyclerView;
         this.findNavController = findNavController;
     }
 
-    public void getHomePageData() {
+    public void getProfilePageData() {
         Call<List<Students>> retrofitData;
         retrofitData = retrofitBuilder.getStudent();
         Log.i("error", "Home Page Data");
@@ -34,7 +35,7 @@ public class HomePageData extends RetrofitBuilder {
             public void onResponse(Call<List<Students>> call, Response<List<Students>> response) {
                 List<Students> students = response.body();
                 try {
-                    recyclerView.setAdapter(new HomeScreenAdapter(students, findNavController));
+                    recyclerView.setAdapter(new ProfileScreenAdapter(students, findNavController));
                 } catch (Exception e) {
                     Log.i("error", "empty results");
                 }

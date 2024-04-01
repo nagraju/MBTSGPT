@@ -1,6 +1,5 @@
 package com.example.mbtsgpt.ui.Attendance;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +10,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.mbtsgpt.databinding.FragmentAttendanceBinding;
-import com.example.mbtsgpt.model.Attendance;
-import com.example.mbtsgpt.ui.Attendance.AttendancePageData;
-import com.example.mbtsgpt.ui.home.HomePageData;
 
 public class AttendanceFragment extends Fragment {
 
