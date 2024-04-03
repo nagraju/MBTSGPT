@@ -64,54 +64,64 @@
 
 
         <TableRow
-            android:background="#F897FF"
+            android:layout_width="517dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="1dp"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:background="#F897FF"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/text_sub"
+                android:layout_column="1"
+                android:gravity="center"
+                android:padding="10dp"
                 android:text="SubCode"
-                android:textSize="18dp"
                 android:textColor="#fff"
-                android:textStyle="bold"
-                android:padding="10dp"
-                android:gravity="center"
-                android:layout_column="1"/>
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
             <TextView
+                android:layout_column="1"
+                android:gravity="center"
+                android:padding="10dp"
                 android:text="Internal"
-                android:textSize="18dp"
                 android:textColor="#fff"
-                android:textStyle="bold"
-                android:padding="10dp"
-                android:gravity="center"
-                android:layout_column="1"/>
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
             <TextView
+                android:layout_column="1"
+                android:gravity="center"
+                android:padding="10dp"
                 android:text="External"
-                android:textSize="18dp"
                 android:textColor="#fff"
-                android:textStyle="bold"
-                android:padding="10dp"
-                android:gravity="center"
-                android:layout_column="1"/>
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
             <TextView
+                android:layout_column="1"
+                android:gravity="center"
+                android:padding="10dp"
                 android:text="Total"
-                android:textSize="18dp"
                 android:textColor="#fff"
-                android:textStyle="bold"
-                android:padding="10dp"
-                android:gravity="center"
-                android:layout_column="1"/>
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
             <TextView
-                android:text="Status"
-                android:textSize="18dp"
-                android:textColor="#fff"
-                android:textStyle="bold"
-                android:padding="10dp"
+                android:layout_column="1"
                 android:gravity="center"
-                android:layout_column="1"/>
+                android:padding="10dp"
+                android:text="Status"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
         </TableRow>
-         <TableRow>
+
+        <TableRow
+             android:layout_margin="10dp">
+
 
              <androidx.recyclerview.widget.RecyclerView
                  android:id="@+id/recyclerView"
